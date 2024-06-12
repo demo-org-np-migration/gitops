@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cauri
+  namespace: platform
+spec:
+  description: Apps de Cauri administradas por Argo CD (estilos C y D de las convenciones internas de API).
+  sourceRepos:
+    - "https://github.com/demo-org-np-migration/*"
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: staging
+    - server: https://kubernetes.default.svc
+      namespace: prod
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
