@@ -1,0 +1,19 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 2
+
+env:
+  SERVICE_NAME: payments-api
+  ENV: prod
+  PORT: "8080"
+  LOG_LEVEL: INFO
+  DB_HOST: postgres.prod.svc
+  DB_NAME: payments
+  KEYCLOAK_ISSUER: http://keycloak.platform.svc:8080/realms/cauri-prod
+  KEYCLOAK_CLIENT_ID: payments-api
+  KAFKA_BOOTSTRAP: kafka.platform.svc:9092
+  KAFKA_TOPIC_PREFIX: "prod."
+  LEDGER_CORE_URL: http://ledger-core:8080
+  FRAUD_SCORING_URL: http://fraud-scoring:8080
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70"

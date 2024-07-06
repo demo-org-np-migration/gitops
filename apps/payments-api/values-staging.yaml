@@ -1,0 +1,19 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 1
+
+env:
+  SERVICE_NAME: payments-api
+  ENV: staging
+  PORT: "8080"
+  LOG_LEVEL: INFO
+  DB_HOST: postgres.staging.svc
+  DB_NAME: payments
+  KEYCLOAK_ISSUER: http://keycloak.platform.svc:8080/realms/cauri-staging
+  KEYCLOAK_CLIENT_ID: payments-api
+  KAFKA_BOOTSTRAP: kafka.platform.svc:9092
+  KAFKA_TOPIC_PREFIX: "staging."
+  LEDGER_CORE_URL: http://ledger-core:8080
+  FRAUD_SCORING_URL: http://fraud-scoring:8080
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70"
