@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: merchant-portal-bff-prod
+  namespace: platform
+spec:
+  project: cauri
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  sources:
+  - repoURL: https://github.com/demo-org-np-migration/merchant-portal-bff.git
+    targetRevision: main
+    path: chart
+    helm:
+      releaseName: merchant-portal-bff
+      valueFiles:
+      - $values/apps/merchant-portal-bff/values-prod.yaml
+  - repoURL: https://github.com/demo-org-np-migration/gitops.git
+    targetRevision: main
+    ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=false

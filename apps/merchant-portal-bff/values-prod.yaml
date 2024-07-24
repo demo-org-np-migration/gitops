@@ -1,0 +1,14 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 1
+
+env:
+  SERVICE_NAME: merchant-portal-bff
+  ENV: prod
+  PORT: "8080"
+  LOG_LEVEL: info
+  KEYCLOAK_ISSUER: http://keycloak.platform.svc:8080/realms/cauri-prod
+  KEYCLOAK_CLIENT_ID: merchant-portal-bff
+  PAYMENTS_API_URL: http://payments-api:8080
+  ACCOUNTS_API_URL: http://accounts-api:8080

@@ -1,0 +1,4 @@
+image:
+  tag: sha-0000000-prod
+
+replicaCount: 1
