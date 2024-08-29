@@ -1,0 +1,14 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 1
+
+env:
+  SERVICE_NAME: reporting-etl
+  ENV: staging
+  PORT: "8080"
+  LOG_LEVEL: INFO
+  KAFKA_BOOTSTRAP: kafka.platform.svc:9092
+  KAFKA_TOPIC_PREFIX: "staging."
+  DB_HOST: postgres.staging.svc
+  DB_NAME: warehouse

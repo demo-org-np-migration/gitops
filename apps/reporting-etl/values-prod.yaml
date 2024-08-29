@@ -1,0 +1,23 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 1
+
+env:
+  SERVICE_NAME: reporting-etl
+  ENV: prod
+  PORT: "8080"
+  LOG_LEVEL: INFO
+  KAFKA_BOOTSTRAP: kafka.platform.svc:9092
+  KAFKA_TOPIC_PREFIX: "prod."
+  DB_HOST: postgres.prod.svc
+  DB_NAME: warehouse
+
+# subido durante INC-142 (2026-03), revisar
+resources:
+  requests:
+    cpu: "1"
+    memory: 2Gi
+  limits:
+    cpu: "1"
+    memory: 2Gi
