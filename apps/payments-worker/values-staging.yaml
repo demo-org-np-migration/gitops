@@ -1,0 +1,18 @@
+image:
+  tag: sha-0000000
+
+replicaCount: 1
+
+env:
+  SERVICE_NAME: payments-worker
+  ENV: staging
+  PORT: "8080"
+  LOG_LEVEL: INFO
+  DB_HOST: postgres.staging.svc
+  DB_NAME: payments
+  KAFKA_BOOTSTRAP: kafka.platform.svc:9092
+  KAFKA_TOPIC_PREFIX: "staging."
+  AWS_ENDPOINT_URL: http://localstack.platform.svc:4566
+  AWS_REGION: us-east-1
+  SQS_QUEUE_PREFIX: staging-
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70"

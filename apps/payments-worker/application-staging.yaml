@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: payments-worker-staging
+  namespace: platform
+spec:
+  project: cauri
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+  sources:
+  - repoURL: https://github.com/demo-org-np-migration/payments-worker.git
+    targetRevision: main
+    path: chart
+    helm:
+      releaseName: payments-worker
+      valueFiles:
+      - $values/apps/payments-worker/values-staging.yaml
+  - repoURL: https://github.com/demo-org-np-migration/gitops.git
+    targetRevision: main
+    ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=false
