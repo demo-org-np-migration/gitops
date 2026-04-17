@@ -1,14 +1,17 @@
 # App-of-apps: esto es lo único que se aplica a mano (kubectl apply -f bootstrap/root.yaml).
 # Argo lo sincroniza y a partir de ahí gestiona todo lo demás desde este mismo repo.
 #
-# path: apps con directory.recurse=true encuentra los application-*.yaml en cada apps/<app>/,
-# pero también encontraría accidentalmente los values-*.yaml si no fueran *.yaml sin kind
-# Application (Argo los ignora igual porque no tienen apiVersion/kind de Application: los
-# values son planos, no manifests). Sumamos projects/ con un segundo recurse porque
-# directory.include con múltiples globs no está soportado de forma confiable en Argo 2.x
-# para un solo Application de tipo directory (ver docs/notas de Paula). Dos Applications
-# "root" (uno por directorio) es más verboso pero renderiza con cualquier Argo 2.x sin
-# depender de que el include-glob haga lo que uno espera.
+# path: apps con directory.recurse=true encuentra los application-*.yaml en cada apps/<app>/.
+# El source tipo Directory de Argo NO los filtra solo: intenta decodificar como manifest de
+# Kubernetes TODO *.yaml del path recorrido, y los values-{staging,prod}.yaml no tienen
+# apiVersion/kind → sin el exclude de abajo el repo-server falla la generación de manifests
+# con "Object 'Kind' is missing" y este Application nunca sincroniza (reproducible con
+# `kubectl apply --dry-run=client -f apps/payments-api/values-staging.yaml`). El
+# directory.exclude saca esos archivos del recorrido antes de que Argo intente parsearlos.
+# Sumamos projects/ con un segundo Application porque directory.include con múltiples globs
+# no está soportado de forma confiable en Argo 2.x para un solo Application de tipo directory
+# (ver docs/notas de Paula). Dos Applications "root" (uno por directorio) es más verboso pero
+# renderiza con cualquier Argo 2.x sin depender de que el include-glob haga lo que uno espera.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -22,6 +25,7 @@ spec:
     path: apps
     directory:
       recurse: true
+      exclude: "**/values-*.yaml"
   destination:
     server: https://kubernetes.default.svc
     namespace: platform
