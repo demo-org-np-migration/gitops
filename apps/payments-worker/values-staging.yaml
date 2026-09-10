@@ -1,5 +1,5 @@
 image:
-  tag: sha-64ec104
+  tag: sha-85a3610
 replicaCount: 1
 env:
   SERVICE_NAME: payments-worker
