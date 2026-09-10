@@ -1,4 +1,3 @@
 image:
-  tag: sha-2c8a6f0-staging
-
+  tag: sha-d8e48a4-staging
 replicaCount: 1
