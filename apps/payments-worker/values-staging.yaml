@@ -1,8 +1,6 @@
 image:
-  tag: sha-9e2a71c
-
+  tag: sha-64ec104
 replicaCount: 1
-
 env:
   SERVICE_NAME: payments-worker
   ENV: staging
