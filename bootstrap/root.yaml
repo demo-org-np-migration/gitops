@@ -18,7 +18,7 @@ metadata:
   name: root
   namespace: platform
 spec:
-  project: cauri
+  project: default
   source:
     repoURL: https://github.com/demo-org-np-migration/gitops.git
     targetRevision: main
@@ -42,7 +42,7 @@ metadata:
   name: root-projects
   namespace: platform
 spec:
-  project: cauri
+  project: default
   source:
     repoURL: https://github.com/demo-org-np-migration/gitops.git
     targetRevision: main

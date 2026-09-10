@@ -32,6 +32,8 @@ for path in paths:
         if doc.get("kind") == "Application" and doc.get("apiVersion", "").startswith("argoproj.io"):
             checked_apps += 1
             project = doc.get("spec", {}).get("project")
+            if str(path).startswith("bootstrap/"):
+                continue  # las apps raíz viven en el proyecto default: son las que crean el proyecto cauri
             if project != "cauri":
                 errors.append(f"{path}: Application sin spec.project=cauri (tiene {project!r})")
 
