@@ -1,8 +1,6 @@
 image:
-  tag: sha-0000000
-
+  tag: sha-85a3610
 replicaCount: 1
-
 env:
   SERVICE_NAME: payments-worker
   ENV: prod
