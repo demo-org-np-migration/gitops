@@ -1,8 +1,6 @@
 image:
-  tag: sha-0000000
-
+  tag: sha-a069b99
 replicaCount: 1
-
 env:
   SERVICE_NAME: reporting-etl
   ENV: prod
@@ -12,7 +10,6 @@ env:
   KAFKA_TOPIC_PREFIX: "prod."
   DB_HOST: postgres.prod.svc
   DB_NAME: warehouse
-
 # subido durante INC-142 (2026-03), revisar
 resources:
   requests:
