@@ -1,8 +1,6 @@
 image:
-  tag: sha-a13f9c2
-
+  tag: sha-39ee841
 replicaCount: 1
-
 env:
   SERVICE_NAME: payments-api
   ENV: staging
