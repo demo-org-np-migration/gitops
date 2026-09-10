@@ -1,8 +1,6 @@
 image:
-  tag: sha-f4b1d93
-
+  tag: sha-2aa2bea
 replicaCount: 1
-
 env:
   SERVICE_NAME: reporting-etl
   ENV: staging
