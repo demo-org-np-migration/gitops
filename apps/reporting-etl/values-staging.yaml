@@ -1,5 +1,5 @@
 image:
-  tag: sha-2aa2bea
+  tag: sha-a069b99
 replicaCount: 1
 env:
   SERVICE_NAME: reporting-etl
