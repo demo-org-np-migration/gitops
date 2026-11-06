@@ -1,5 +1,5 @@
 image:
-  tag: sha-1bf58e5
+  tag: sha-1a1ad5f
 replicaCount: 1
 env:
   SERVICE_NAME: merchant-portal-bff
