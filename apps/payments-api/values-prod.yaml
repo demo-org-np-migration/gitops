@@ -1,5 +1,5 @@
 image:
-  tag: sha-5594003
+  tag: sha-2519e8a
 replicaCount: 2
 env:
   SERVICE_NAME: payments-api
