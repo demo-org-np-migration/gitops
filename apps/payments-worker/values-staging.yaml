@@ -1,6 +1,6 @@
 image:
   tag: sha-12ad52e
-replicaCount: 1
+replicaCount: 2
 env:
   SERVICE_NAME: payments-worker
   ENV: staging
