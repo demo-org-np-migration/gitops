@@ -15,4 +15,4 @@ env:
   LEDGER_CORE_URL: http://ledger-core:8080
   FRAUD_SCORING_URL: http://fraud-scoring:8080
   JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70"
-  NP_TEST_DIM: "s1"
+  NP_TEST_DIM: "s2"
